@@ -292,9 +292,9 @@ function processUploadedData(file) {
     });
 }
 
-// AUTO-LOAD YOUR sample_data.csv FILE
-function loadHistoricalDataFromFile() {
-    fetch('data/sample_data.csv')   
+// LOAD SAMPLE DATA (80k records) - This is your main file now
+function loadSampleData() {
+    fetch('data/sample_data.csv')
         .then(response => {
             if (!response.ok) throw new Error('CSV file not found');
             return response.text();
@@ -312,13 +312,13 @@ function loadHistoricalDataFromFile() {
                         document.getElementById('loadingIndicator').style.display = 'none';
                         document.getElementById('dashboardContent').style.display = 'block';
                         document.getElementById('uploadSection').style.display = 'none';
-                        console.log(`Loaded ${results.data.length} trades from sample_data.csv`); // Updated log message
+                        console.log(`✅ Loaded ${results.data.length} trades from sample_data.csv`);
                     }
                 }
             });
         })
         .catch(error => {
-            console.log('No sample_data.csv found, showing upload option'); // Updated error message
+            console.log('⚠️ No sample_data.csv found, showing upload option');
             document.getElementById('loadingIndicator').style.display = 'none';
         });
 }
@@ -328,6 +328,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('tradesUpload').addEventListener('change', (e) => {
         if (e.target.files && e.target.files[0]) processUploadedData(e.target.files[0]);
     });
-    document.getElementById('loadSampleBtn').addEventListener('click', loadHistoricalDataFromFile);
-    loadHistoricalDataFromFile();
+    document.getElementById('loadSampleBtn').addEventListener('click', loadSampleData);
+    loadSampleData();  // Auto-load sample data on page load
 });
