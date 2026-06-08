@@ -329,5 +329,5 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target.files && e.target.files[0]) processUploadedData(e.target.files[0]);
     });
     document.getElementById('loadSampleBtn').addEventListener('click', loadSampleData);
-    loadSampleData();  // Auto-load sample data on page load
+    // ❌ REMOVED: loadSampleData(); - No more auto-load
 });
