@@ -292,9 +292,9 @@ function processUploadedData(file) {
     });
 }
 
-// AUTO-LOAD YOUR historical_data.csv FILE
+// AUTO-LOAD YOUR sample_data.csv FILE
 function loadHistoricalDataFromFile() {
-    fetch('data/historical_data.csv')
+    fetch('data/sample_data.csv')   
         .then(response => {
             if (!response.ok) throw new Error('CSV file not found');
             return response.text();
@@ -312,13 +312,13 @@ function loadHistoricalDataFromFile() {
                         document.getElementById('loadingIndicator').style.display = 'none';
                         document.getElementById('dashboardContent').style.display = 'block';
                         document.getElementById('uploadSection').style.display = 'none';
-                        console.log(`Loaded ${results.data.length} trades from historical_data.csv`);
+                        console.log(`Loaded ${results.data.length} trades from sample_data.csv`); // Updated log message
                     }
                 }
             });
         })
         .catch(error => {
-            console.log('No historical_data.csv found, showing upload option');
+            console.log('No sample_data.csv found, showing upload option'); // Updated error message
             document.getElementById('loadingIndicator').style.display = 'none';
         });
 }
