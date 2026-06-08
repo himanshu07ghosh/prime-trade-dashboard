@@ -1,8 +1,8 @@
-# Prime Trade Analytics Dashboard
+# Prime Trade Analytics Dashboard - By Himanshu Ghosh
 
-## 📊 Live Demo
+## 📊 Live Demo - (Himanshu Ghosh Github & vercel production)
 - **GitHub Pages**: https://himanshu07ghosh.github.io/prime-trade-dashboard/
-- **Vercel**: https://prime-trade-dashboard.vercel.app/
+- **Vercel Live Production Link**: https://vercel.com/himanshu07ghoshs-projects/prime-trade-dashboard
 
 ## 🚀 Quick Deploy
 
