@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Trade Analytics | Trading Performance Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-badge"><span class="badge">🚀 Prime Trade Analytics</span></div>
+            <h1>Trader Performance <span class="gradient-text">vs Market Sentiment</span></h1>
+            <p>Comprehensive analysis of 211,224+ trades | May 2023 – May 2025</p>
+        </header>
+        
+        <div class="upload-section" id="uploadSection">
+            <div class="upload-icon">📁</div>
+            <h3>Upload Your Trading Data</h3>
+            <p>Upload CSV files to generate real-time insights and visualizations</p>
+            <div class="upload-buttons">
+                <label class="upload-btn primary" for="tradesUpload">📊 Upload Historical Trades CSV</label>
+                <input type="file" id="tradesUpload" accept=".csv">
+                <label class="upload-btn secondary" for="sentimentUpload">📈 Upload Fear & Greed CSV</label>
+                <input type="file" id="sentimentUpload" accept=".csv">
+            </div>
+            <div class="upload-note">
+                <span>💡 Tip: Upload your files or use sample data below</span>
+                <button class="sample-btn" id="loadSampleBtn">Load Sample Data</button>
+            </div>
+        </div>
+        
+        <div id="loadingIndicator" class="loading-indicator" style="display: block;">
+            <div class="spinner"></div>
+            <p>Loading 211,224+ trades from historical_data.csv...</p>
+            <p style="font-size: 0.8rem; color: #888;">This may take a few seconds</p>
+        </div>
+        
+        <div id="dashboardContent" style="display: none;">
+            <section class="stats-section"><div class="stats-grid" id="statsGrid"></div></section>
+            
+            <section class="charts-section">
+                <div class="charts-grid">
+                    <div class="chart-card"><div class="chart-header"><div class="chart-title">💰 Total PnL by Market Sentiment</div><div class="chart-subtitle">Cumulative closed PnL across all traders</div></div><div class="chart-container"><canvas id="pnlChart"></canvas></div></div>
+                    <div class="chart-card"><div class="chart-header"><div class="chart-title">📈 Win Rate by Sentiment</div><div class="chart-subtitle">% of trades with positive PnL</div></div><div class="chart-container"><canvas id="winRateChart"></canvas></div></div>
+                </div>
+            </section>
+            
+            <section class="charts-section">
+                <div class="charts-grid">
+                    <div class="chart-card"><div class="chart-header"><div class="chart-title">💵 Avg PnL per Trade by Sentiment</div><div class="chart-subtitle">Mean closed PnL per individual trade (USD)</div></div><div class="chart-container"><canvas id="avgPnlChart"></canvas></div></div>
+                    <div class="chart-card"><div class="chart-header"><div class="chart-title">📊 Long vs Short Bias by Sentiment</div><div class="chart-subtitle">Opening position direction count</div></div><div class="chart-container"><canvas id="biasChart"></canvas></div></div>
+                </div>
+            </section>
+            
+            <section class="charts-section">
+                <div class="charts-grid">
+                    <div class="chart-card"><div class="chart-header"><div class="chart-title">💰 Avg Trade Size by Sentiment</div><div class="chart-subtitle">Larger trades in Fear zones — traders size up when blood is in the water</div></div><div class="chart-container"><canvas id="tradeSizeChart"></canvas></div></div>
+                    <div class="chart-card"><div class="chart-header"><div class="chart-title">🏆 Top Traders by PnL</div><div class="chart-subtitle">Gross PnL, net after fees, and trade count</div></div><div class="chart-container"><canvas id="topTradersChart"></canvas></div></div>
+                </div>
+            </section>
+            
+            <section class="insights-section">
+                <div class="section-header"><h2>🔍 Key Trading Insights</h2><p>Data-driven observations from the analysis</p></div>
+                <div class="insights-grid" id="insightsGrid"></div>
+            </section>
+            
+            <section class="traders-section">
+                <div class="section-header"><h2>🏅 Top 10 Traders Performance</h2><p>Detailed breakdown of top performing traders</p></div>
+                <div class="table-wrapper"><table class="traders-table" id="tradersTable"><thead><tr><th>Rank</th><th>Trader Address</th><th>Total PnL (USD)</th><th>Trade Count</th><th>Win Rate</th><th>Best Sentiment</th></tr></thead><tbody id="tradersTableBody"></tbody></table></div>
+            </section>
+            
+            <section class="coins-section">
+                <div class="section-header"><h2>🪙 Best Performing Coins by Sentiment</h2><p>Top coins for each market regime</p></div>
+                <div class="coins-grid" id="coinsGrid"></div>
+            </section>
+        </div>
+        
+        <footer class="footer"><p>© 2024 Prime Trade Analytics | Powered by Hyperliquid Data</p><p class="footer-note">This dashboard analyzes the relationship between trader performance and market sentiment</p></footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
