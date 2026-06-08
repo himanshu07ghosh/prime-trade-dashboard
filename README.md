@@ -28,7 +28,7 @@ python -m http.server 8000
 # Open http://localhost:8000
 
 
-### 📊 Data Source
+## 📊 Data Source
 
 This dashboard uses the `historical_data.csv` file located in the `/data` folder containing:
 - **211,224+ trades** from May 2023 - May 2025
