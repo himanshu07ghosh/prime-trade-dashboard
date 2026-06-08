@@ -30,7 +30,7 @@ python -m http.server 8000
 
 ## 📊 Data Source
 
-This dashboard uses the `historical_data.csv` file located in the `/data` folder containing:
+This dashboard uses the `sample_data.csv` file located in the `/data` folder containing:
 - **211,224+ trades** from May 2023 - May 2025
 - **32 unique traders**
 - Multiple trading pairs (BTC, ETH, HYPE, @107, AAVE, etc.)
