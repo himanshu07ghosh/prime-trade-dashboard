@@ -1,7 +1,7 @@
 # Prime Trade Analytics Dashboard
 
 ## 📊 Live Demo
-- **GitHub Pages**: https://YOUR_USERNAME.github.io/prime-trade-dashboard/
+- **GitHub Pages**: https://himanshu07ghosh.github.io/prime-trade-dashboard/
 - **Vercel**: https://prime-trade-dashboard.vercel.app/
 
 ## 🚀 Quick Deploy
@@ -27,3 +27,21 @@ cd prime-trade-dashboard
 python -m http.server 8000
 # Open http://localhost:8000
 
+
+### 📊 Data Source
+
+This dashboard uses the `historical_data.csv` file located in the `/data` folder containing:
+- **211,224+ trades** from May 2023 - May 2025
+- **32 unique traders**
+- Multiple trading pairs (BTC, ETH, HYPE, @107, AAVE, etc.)
+
+### CSV Columns Expected:
+| Column | Description |
+|--------|-------------|
+| Account | Trader wallet address |
+| Coin | Trading pair symbol |
+| Size USD | Trade size in USD |
+| Side | BUY or SELL |
+| Timestamp IST | Trade date and time |
+| Closed PnL | Profit/Loss from trade |
+| Fee | Transaction fee |
