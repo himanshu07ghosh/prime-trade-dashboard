@@ -45,3 +45,6 @@ This dashboard uses the `sample_data.csv` file located in the `/data` folder con
 | Timestamp IST | Trade date and time |
 | Closed PnL | Profit/Loss from trade |
 | Fee | Transaction fee |
+
+
+Contact Author : himanshu07ghosh@gmail.com
